@@ -1,0 +1,51 @@
+<%- include('./partials/head.ejs', {title: 'ML'}) %>
+
+
+<body>
+    <!-- Encabezado -->
+    <%- include('./partials/header.ejs', {encabezado: 'Mercado'}) %>
+
+    <!-- Contenido principal -->
+    <main>
+
+        <section class="mas-vendidos">
+            <h2>Productos más vendidos</h2>
+            <div class="product-list">
+            <% data.map(({id, title, price, brand,img})=>{ %>
+                <article class="style-article" id="football">
+                    <img src="<%= img %> " alt="<%= title %>">
+                    <h3>
+                        <%= title %>
+                    </h3>
+                    <p>
+                        <%= brand %>
+                    </p>
+                    <p>
+                        $<%= price  %>
+                    </p>
+                    <a href="/product/<%= id %>">Ver más</a>
+                </article>
+                <% }) %>
+            </div>
+
+        </section>
+
+        <!-- <section class="mas-vendidos">
+            <h2>Productos más vendidos</h2>
+            <div class="product-list">
+            <% data.map(({id, title, price, brand,img})=>{ %>
+                    <%- include('./partials/article.ejs', {id: id, title: title,price: price,brand: brand, img:  img}) %>    
+                <% }) %>
+            </div>
+
+        </section> -->
+    </main>
+
+    <!-- Contenido secundario -->
+    <!-- <footer>
+        <p>Copyright</p>
+    </footer> -->
+
+</body>
+
+</html>
